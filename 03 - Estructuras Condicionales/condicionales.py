@@ -1,16 +1,3 @@
-""" 7) Escribir un programa que solicite una frase o palabra al usuario. Si el string ingresado
-termina con vocal, añadir un signo de exclamación al final e imprimir el string resultante por
-pantalla; en caso contrario, dejar el string tal cual lo ingresó el usuario e imprimirlo por
-pantalla. """
-str = input("Ingrese una frase o una palabra: ")
-ultimaLetra = str[len(str)-1].lower()
-vocales = ["a", "e", "i", "o", "u"]
-
-for i in range(len(vocales)):
-    if ultimaLetra == vocales[i]:
-        str = str +"!"
-print(str)
-
 """ 1) Escribir un programa que solicite la edad del usuario. Si el usuario es mayor de 18 años,
 deberá mostrar un mensaje en pantalla que diga “Es mayor de edad”."""
 edad = int(input("Por favor ingrese su edad: "))
@@ -95,3 +82,97 @@ elif media < mediana and mediana < moda:
     print("Sesgo negativo")
 elif media == mediana and media == moda:
     print("Sin sesgo")
+""" 7) Escribir un programa que solicite una frase o palabra al usuario. Si el string ingresado
+termina con vocal, añadir un signo de exclamación al final e imprimir el string resultante por
+pantalla; en caso contrario, dejar el string tal cual lo ingresó el usuario e imprimirlo por
+pantalla. """
+str = input("Ingrese una frase o una palabra: ")
+ultimaLetra = str[len(str)-1].lower()
+vocales = ["a", "e", "i", "o", "u"]
+
+for i in range(len(vocales)):
+    if ultimaLetra == vocales[i]:
+        str = str +"!"
+print(str)
+""" 8) Escribir un programa que solicite al usuario que ingrese su nombre y el número 1, 2 o 3 dependiendo de la opción que desee:
+1. Si quiere su nombre en mayúsculas. Por ejemplo: PEDRO.
+2. Si quiere su nombre en minúsculas. Por ejemplo: pedro.
+3. Si quiere su nombre con la primera letra mayúscula. Por ejemplo: Pedro.
+El programa debe transformar el nombre ingresado de acuerdo a la opción seleccionada por el usuario e imprimir el resultado por 
+pantalla. Nota: investigue uso de las funciones upper(), lower() y title() de Python para convertir entre mayúsculas y minúsculas. """
+nombre = input("Ingrese su nombre: ")
+opcion = int(input("Ingrese 1 si desea su nombre en mayusculas, 2 si desea su nombre en minusculas, 3 si desea su nombre con la primer letra en minusculas: "))
+if opcion == 1:
+    print(nombre.upper())
+elif opcion == 2:
+    print(nombre.lower())
+elif opcion == 3:
+    print(nombre.title())
+""" 9) Escribir un programa que pida al usuario la magnitud de un terremoto, clasifique la magnitud en una de las siguientes 
+categorías según la escala de Richter e imprima el resultado por pantalla:
+● Menor que 3: "Muy leve" (imperceptible).
+● Mayor o igual que 3 y menor que 4: "Leve" (ligeramente perceptible).
+● Mayor o igual que 4 y menor que 5: "Moderado" (sentido por personas, pero generalmente no causa daños).
+● Mayor o igual que 5 y menor que 6: "Fuerte" (puede causar daños en estructuras débiles).
+● Mayor o igual que 6 y menor que 7: "Muy Fuerte" (puede causar daños significativos).
+● Mayor o igual que 7: "Extremo" (puede causar graves daños a gran escala). """
+
+magnitud = int(input("Clasifique la magnitud del terremoto del 1 al 10: "))
+if magnitud > 0 and magnitud < 3:
+    print("Muy leve")
+elif magnitud >= 3 and magnitud < 4: 
+    print("Leve")
+elif magnitud >= 4 and magnitud < 5:
+    print("Moderado")
+elif magnitud >= 5 and magnitud < 6:
+    print("Fuerte")
+elif magnitud >= 6 and magnitud < 7:
+    print("Muy Fuerte")
+elif magnitud >= 7:
+    print("Extremo")
+
+""" 10) Utilizando la información aportada en la siguiente tabla sobre las estaciones del año Periodo del año
+Estación en el
+hemisferio norte
+Estación en el
+hemisferio sur
+Desde el 21 de diciembre hasta el 20 de
+marzo (incluidos)
+Invierno Verano
+Desde el 21 de marzo hasta el 20 de junio
+(incluidos)
+Primavera Otoño
+Desde el 21 de junio hasta el 20 de
+septiembre (incluidos)
+Verano Invierno
+Desde el 21 de septiembre hasta el 20 de
+diciembre (incluidos)
+Otoño Primavera
+Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes del año es y qué día es. El programa 
+deberá utilizar esa información para imprimir por pantalla si el usuario se encuentra en otoño, invierno, primavera o verano. """
+
+hemisferio = input("Indique por favor en que hemisferio se encuentra: ").lower()
+mes = input("Indique por favor el mes actual en forma textual: ").lower()
+dia = int(input("Indique por favor que numero de dia es hoy: "))
+
+
+if (mes == "diciembre" and dia >= 21) or (mes == "enero" or mes == "febrero") or (mes == "marzo" and dia < 21):
+        if hemisferio == "norte":
+            print("Invierno")
+        elif hemisferio == "sur":
+            print("Verano")
+elif (mes == "marzo" and dia >= 21) or (mes == "abril" or mes == "mayo") or (mes == "junio" and dia < 21):
+    if hemisferio == "norte":
+        print("Primavera")
+    elif hemisferio == "sur":
+        print("Otoño")
+elif (mes == "junio" and dia >= 21) or (mes == "julio" or mes == "agosto") or (mes == "septiembre" and dia < 21):
+    if hemisferio == "norte":
+        print("Verano")
+    elif hemisferio == "sur":
+        print("Invierno")
+elif (mes == "septiembre" and dia >= 21) or (mes == "octubre" or mes == "noviembre") or (mes == "diciembre" and dia < 21):
+    if hemisferio == "norte":
+        print("Otoño")
+    elif hemisferio == "sur":
+        print("Primavera")
