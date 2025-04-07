@@ -13,5 +13,3 @@ for cont in range(personas):
         mayores += 1
 porcentaje = 100 / personas * mayores
 print(porcentaje)
-""" 1) porcentaje = 100 / cont * mayores """        
-""" 2)  porcentaje = porcentaje """
