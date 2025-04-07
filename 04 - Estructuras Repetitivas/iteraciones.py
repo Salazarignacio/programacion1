@@ -1,26 +1,3 @@
-"""10) Escribe un programa que invierta el orden de los dígitos de un número ingresado por el
-usuario. Ejemplo: si el usuario ingresa 547, el programa debe mostrar 745. """
-
-num = float(input("Por favor ingrese un numero "))
-copia_num = num
-numero_final = 0
-cifras = 1
-cifras_2 = 1
-
-while num >= 1: 
-    while copia_num > 9:
-        copia_num /= 10
-        cifras *= 10 
-        copia_num = int(copia_num)
-        """ numero_final = copia_num """
-    numero_final = numero_final + copia_num * cifras_2
-    num = num - (copia_num * cifras)
-    copia_num = num
-    cifras = 1
-    cifras_2 *=10
-    
-print(f"El numero al reves es {numero_final}")
-
 """ 1) Crea un programa que imprima en pantalla todos los números enteros desde 0 hasta 100
 (incluyendo ambos extremos), en orden creciente, mostrando un número por línea."""
 for cont in range(101):
@@ -126,3 +103,31 @@ for cont in range(rango):
 media = acumulador / rango
 
 print(f"La media de todos los numeros ingresados es {media}")
+
+"""10) Escribe un programa que invierta el orden de los dígitos de un número ingresado por el
+usuario. Ejemplo: si el usuario ingresa 547, el programa debe mostrar 745. """
+
+num = float(input("Por favor ingrese un numero "))
+copia_num = num
+numero_final = 0
+cifras = 1
+cifras_2 = 1
+
+while num >= 1: 
+    while copia_num > 9:
+        copia_num /= 10
+        cifras *= 10 
+        copia_num = int(copia_num)
+    numero_final = numero_final + copia_num * cifras_2
+    num = num - (copia_num * cifras)
+    copia_num = num
+    cifras = 1
+    cifras_2 *=10
+    
+print(f"El numero al reves es {numero_final}")
+
+""" Tambien se me ocurrio esta otra manera """
+
+numero = input("Ingrese un numero")
+""" Pregunte al chat GPT como dar vuelta un string """
+print(numero[::-1]) 
