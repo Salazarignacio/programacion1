@@ -1,32 +1,3 @@
-""" 6) Dado un string con paréntesis "()", "{}", "[]", verifica si están correctamente
-balanceados usando una pila. """
-
-def balanceado(string):
-    pila = list(string)
-    
-    booleano = True
-    largo = len(pila)
-    """ Si tiene elementos impares no pueden estar emparejados, por tanto no estan correctamente balanceados """
-    if largo % 2 != 0:
-        booleano = False
-    
-    largo = int(largo/2)
-    """ Se me ocurrio hacer un bucle que compare la primera mitad de la pila con el correspondiente en cada iteracion """
-    """ A medida que el bucle avanza compara si el elemento recorrido esta siendo balanceado """
-    """ En cada iteracion se elimina el ultimo elemento de la pila """
-    for i in range(largo):
-         if (pila[i] == "(" and pila[len(pila)-1] != ")") or (pila[i] == "{" and pila[len(pila)-1] != "}") or (pila[i] == "[" and pila[len(pila)-1] != "]"):
-             return False
-         else:
-             pila.pop()
-    return booleano
-
-""" Se realizan varias pruebas para garantizar los resultados """
-print(balanceado("{{({()})}"))
-print(balanceado("({()})"))
-print(balanceado("{({([[]])})}"))
-print(balanceado("{({([)})}")) 
-
 """ 1) Dado el diccionario precios_frutas 
 precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva': 1450} 
 Añadir las siguientes frutas con sus respectivos precios: ● Naranja = 1200 ● Manzana = 1500 ● Pera = 2300 """
@@ -75,3 +46,103 @@ class Circulo:
 circulo1 = Circulo(12)    
 print(circulo1.calcular_area())
 print(circulo1.calcular_perimetro())
+
+""" 6) Dado un string con paréntesis "()", "{}", "[]", verifica si están correctamente
+balanceados usando una pila. """
+
+def balanceado(string):
+    pila = list(string)
+    
+    booleano = True
+    largo = len(pila)
+    """ Si tiene elementos impares no pueden estar emparejados, por tanto no estan correctamente balanceados """
+    if largo % 2 != 0:
+        booleano = False
+    
+    largo = int(largo/2)
+    """ Se me ocurrio hacer un bucle que compare la primera mitad de la pila con el correspondiente en cada iteracion """
+    """ A medida que el bucle avanza compara si el elemento recorrido esta siendo balanceado """
+    """ En cada iteracion se elimina el ultimo elemento de la pila """
+    for i in range(largo):
+         if (pila[i] == "(" and pila[len(pila)-1] != ")") or (pila[i] == "{" and pila[len(pila)-1] != "}") or (pila[i] == "[" and pila[len(pila)-1] != "]"):
+             return False
+         else:
+             pila.pop()
+    return booleano
+
+""" Se realizan varias pruebas para garantizar los resultados """
+print(balanceado("({()})"))
+print(balanceado("({[})"))
+print(balanceado("{{({()})}"))
+print(balanceado("{({([[]])})}"))
+print(balanceado("{({([)})}")) 
+
+""" 7) Usa una cola para simular un sistema de turnos en un banco. La cola debe permitir:
+● Agregar clientes (encolar).
+● Atender clientes (desencolar).
+● Mostrar el siguiente cliente en la fila.
+ """
+
+from collections import deque
+
+class Cola_banco:
+    def __init__(self):
+        self.clientes = deque()
+    def encolar(self, cliente):
+        self.clientes.append(cliente)
+    def desencolar(self):
+        if self.clientes:
+            return self.clientes.popleft()
+        else:
+            return "No hay clientes" 
+    def mostrar_proximo(self):
+        return self.clientes[0]
+    
+clientes = Cola_banco()
+clientes.encolar("Cliente 1")
+clientes.encolar("Cliente 2")
+clientes.encolar("Cliente 3")
+print(f"Proximo cliente: {clientes.mostrar_proximo()}")
+print(f"Cliente atendido: {clientes.desencolar()}")
+print(f"Proximo cliente: {clientes.mostrar_proximo()}")
+
+""" 8) Crea una lista enlazada que permita insertar nodos al inicio y recorrer la lista para mostrar
+los valores almacenados. """
+
+class Nodo:
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None
+
+class ListaEnlazada:
+    def __init__(self):
+        self.cabeza = None
+    def insertar_nodo(self, dato):
+        nuevo_nodo = Nodo(dato)
+        nuevo_nodo.siguiente = self.cabeza
+        self.cabeza = nuevo_nodo
+    def mostrar(self):
+        actual = self.cabeza
+        while actual:
+            print(f"{actual.dato} -> ")
+            actual = actual.siguiente
+
+nueva_lista = ListaEnlazada()
+nueva_lista.insertar_nodo(3)
+nueva_lista.insertar_nodo(2)
+nueva_lista.insertar_nodo(1)
+nueva_lista.mostrar()
+
+""" 9) Dada una lista enlazada, implementa una función para invertirla.
+Ejemplo de entrada y salida: """
+
+def invertir_lista(lista):
+    print(lista.cabeza.dato)
+    print(lista.cabeza.siguiente.dato)
+    actual = lista.cabeza
+    while actual:
+        print(f"{actual.dato} -> ")
+        actual = actual.siguiente
+    
+
+invertir_lista(nueva_lista)
