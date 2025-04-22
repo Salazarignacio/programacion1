@@ -1,3 +1,32 @@
+""" 6) Dado un string con paréntesis "()", "{}", "[]", verifica si están correctamente
+balanceados usando una pila. """
+
+def balanceado(string):
+    pila = list(string)
+    
+    booleano = True
+    largo = len(pila)
+    """ Si tiene elementos impares no pueden estar emparejados, por tanto no estan correctamente balanceados """
+    if largo % 2 != 0:
+        booleano = False
+    
+    largo = int(largo/2)
+    """ Se me ocurrio hacer un bucle que compare la primera mitad de la pila con el correspondiente en cada iteracion """
+    """ A medida que el bucle avanza compara si el elemento recorrido esta siendo balanceado """
+    """ En cada iteracion se elimina el ultimo elemento de la pila """
+    for i in range(largo):
+         if (pila[i] == "(" and pila[len(pila)-1] != ")") or (pila[i] == "{" and pila[len(pila)-1] != "}") or (pila[i] == "[" and pila[len(pila)-1] != "]"):
+             return False
+         else:
+             pila.pop()
+    return booleano
+
+""" Se realizan varias pruebas para garantizar los resultados """
+print(balanceado("{{({()})}"))
+print(balanceado("({()})"))
+print(balanceado("{({([[]])})}"))
+print(balanceado("{({([)})}")) 
+
 """ 1) Dado el diccionario precios_frutas 
 precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva': 1450} 
 Añadir las siguientes frutas con sus respectivos precios: ● Naranja = 1200 ● Manzana = 1500 ● Pera = 2300 """
@@ -46,13 +75,3 @@ class Circulo:
 circulo1 = Circulo(12)    
 print(circulo1.calcular_area())
 print(circulo1.calcular_perimetro())
-
-""" 6) Dado un string con paréntesis "()", "{}", "[]", verifica si están correctamente
-balanceados usando una pila. """
-
-def balanceado(string):
-    lista = list(string)
-    for i in range(len(lista)):
-        print(lista[i])
-
-balanceado("{()}")
