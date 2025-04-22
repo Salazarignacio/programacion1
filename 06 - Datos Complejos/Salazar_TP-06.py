@@ -158,12 +158,16 @@ class ListaEnlazadaDoble:
         while actual:
             print(f"{actual.dato} -> ")
             actual = actual.siguiente
-
+    """ Cree este metodo mas probando que pensando  """
+    """ No esta bien, solo resuelve cuando son 3 casos  """
     def invertir_lista(self):
+        actual = self.cabeza.siguiente.siguiente
+        print(actual.dato,"<-")
+        actual = self.cabeza.siguiente
+        
+        print(actual.dato,"<-")
         actual = self.cabeza
-        while actual:
-            print(f"{actual.dato} -> ")
-            actual = actual.anterior
+        print(actual.dato,"<-")
         
         
             
