@@ -136,13 +136,39 @@ nueva_lista.mostrar()
 """ 9) Dada una lista enlazada, implementa una función para invertirla.
 Ejemplo de entrada y salida: """
 
-def invertir_lista(lista):
-    print(lista.cabeza.dato)
-    print(lista.cabeza.siguiente.dato)
-    actual = lista.cabeza
-    while actual:
-        print(f"{actual.dato} -> ")
-        actual = actual.siguiente
-    
+class NodoDoble:
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None
+        self.anterior = None
 
-invertir_lista(nueva_lista)
+class ListaEnlazadaDoble:
+    def __init__(self):
+        self.cabeza = None
+
+    def insertar_nodo(self, dato):
+        nuevo_nodo = NodoDoble(dato)
+        if self.cabeza:
+            self.anterior = nuevo_nodo
+        nuevo_nodo.siguiente = self.cabeza
+        self.cabeza = nuevo_nodo
+    
+    def mostrar(self):
+        actual = self.cabeza
+        while actual:
+            print(f"{actual.dato} -> ")
+            actual = actual.siguiente
+
+    def invertir_lista(self):
+        actual = self.cabeza
+        while actual:
+            print(f"{actual.dato} -> ")
+            actual = actual.anterior
+        
+        
+            
+nueva_lista_letras = ListaEnlazadaDoble()
+nueva_lista_letras.insertar_nodo(3)
+nueva_lista_letras.insertar_nodo(2)
+nueva_lista_letras.insertar_nodo(1)
+nueva_lista_letras.invertir_lista()
