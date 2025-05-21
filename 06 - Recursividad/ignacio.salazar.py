@@ -7,15 +7,23 @@ def decimal_binario(num):
     elif num == 1:
         return "1"
     elif num % 2 == 0:
-        str_numero = decimal_binario(num // 2)+"0" 
-        str_numero += str_numero
+        str_numero = decimal_binario(num // 2)
+        str_numero += "0" + str_numero
         return str_numero
     else:
-        str_numero = decimal_binario(num // 2)+"1" 
-        str_numero += str_numero
+        str_numero = decimal_binario(num // 2)
+        str_numero +=  "1" + str_numero 
         return str_numero
 
-print(decimal_binario(4))
+def decimal_binario2(num):
+    
+    if num < 2:
+        return str(num % 2)
+    else:
+        fact = decimal_binario2(num // 2) + str(num %2)
+        return fact
+
+print(decimal_binario2(29))
 
 """ 1) Crea una función recursiva que calcule el factorial de un número. Luego, utiliza esa
 función para calcular y mostrar en pantalla el factorial de todos los números enteros
