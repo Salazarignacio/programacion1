@@ -1,20 +1,28 @@
-""" 8) Escribí una función recursiva llamada contar_digito(numero, digito) que reciba un número entero positivo (numero) y
-un dígito (entre 0 y 9), y devuelva cuántas veces aparece ese dígito dentro del número.
+""" 8) Escribí una función recursiva llamada contar_digito(numero, digito) que reciba un número entero 
+positivo (numero) y un dígito (entre 0 y 9), y devuelva cuántas veces aparece ese dígito dentro del número.
 Ejemplos:
 contar_digito(12233421, 2) → 3
 contar_digito(5555, 5) → 4
 contar_digito(123456, 7) → 0 """
 
-def contar_digito(numero, digito):
-    if numero < 9:
-        if numero == digito:
-            return [1, numero]
-        else:
-            return [0, numero]
-    else:
-        return contar_digito(numero//10, digito) 
+st = "236"
+print(st[0:-1])
+    
+def contar_digitow(numero, digito):
+    numero = str(numero)
+    digito = str(digito)
 
-print(contar_digito(2122334212, 2))
+    if len(numero) == 1:
+        if numero == digito:
+            return 1
+        else:
+            return 0
+    else:
+        fn = contar_digitow(numero[0:-1], digito) # se que tengo que sumar lo que retorna y que tengo que recuperar el numero
+        return fn
+          
+
+print(contar_digitow(236, 2))
 """ 1) Crea una función recursiva que calcule el factorial de un número. Luego, utiliza esa
 función para calcular y mostrar en pantalla el factorial de todos los números enteros
 entre 1 y el número que indique el usuario """
