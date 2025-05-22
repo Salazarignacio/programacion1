@@ -9,13 +9,13 @@ contar_digito(123456, 7) → 0 """
 print(st[0:-1]) """
     
 def contar_digito(numero, digito):
-    if numero <= 9:
+    if len(str(numero)) == 1:
         if numero == digito:
             return 1 # probe tambien devolver un array con dos valores [numero, 1] pero no me deja acceder
         else:
             return 0
     else:
-        return contar_digito(numero // 10, digito)  # se que tengo que sumar lo que retorna y que tengo que recuperar el numero
+        return contar_digito(numero // 10, digito) +1   # se que tengo que sumar lo que retorna y que tengo que recuperar el numero
          
 
 print(contar_digito(236, 2))
