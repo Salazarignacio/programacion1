@@ -5,9 +5,21 @@ contar_digito(12233421, 2) → 3
 contar_digito(5555, 5) → 4
 contar_digito(123456, 7) → 0 """
 
-st = "236"
-print(st[0:-1])
+""" st = "236"
+print(st[0:-1]) """
     
+def contar_digito(numero, digito):
+    if len(str(numero)) == 1:
+        if numero == digito:
+            return 1 # probe tambien devolver un array con dos valores [numero, 1] pero no me deja acceder
+        else:
+            return 0
+    else:
+        return contar_digito(numero // 10, digito) +1   # se que tengo que sumar lo que retorna y que tengo que recuperar el numero
+         
+
+print(contar_digito(236, 2))
+
 def contar_digitow(numero, digito):
     numero = str(numero)
     digito = str(digito)
@@ -22,7 +34,8 @@ def contar_digitow(numero, digito):
         return fn
           
 
-print(contar_digitow(236, 2))
+""" print(contar_digitow(236, 2)) """
+
 """ 1) Crea una función recursiva que calcule el factorial de un número. Luego, utiliza esa
 función para calcular y mostrar en pantalla el factorial de todos los números enteros
 entre 1 y el número que indique el usuario """
